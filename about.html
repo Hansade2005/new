@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - EliteShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="index.html" class="brand-link">
+                        <i class="fas fa-crown"></i>
+                        <span>EliteShop</span>
+                    </a>
+                </div>
+
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="products.html?category=electronics">Electronics</a>
+                            <a href="products.html?category=clothing">Clothing</a>
+                            <a href="products.html?category=home">Home & Garden</a>
+                            <a href="products.html?category=books">Books</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="search-toggle" id="searchToggle">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <div class="search-container">
+                <input type="text" placeholder="Search products..." id="searchInput">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="products.html?category=electronics">Electronics</a>
+            <a href="products.html?category=clothing">Clothing</a>
+            <a href="products.html?category=home">Home & Garden</a>
+            <a href="products.html?category=books">Books</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <button class="theme-toggle" id="mobileThemeToggle" style="width: 100%; text-align: left; margin-top: var(--spacing-2);">
+                <i class="fas fa-moon"></i>
+                <span id="themeText">Dark Mode</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span>About Us</span></li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content">
+                <h1 class="section-title">About EliteShop</h1>
+                <p class="section-subtitle">Your trusted partner in premium shopping experiences</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="our-story">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2024, EliteShop has been dedicated to providing customers with the finest selection of premium products. We believe that shopping should be an experience that combines quality, convenience, and exceptional service.</p>
+                    <p>Our journey began with a simple mission: to create an online marketplace where customers can discover and purchase products that enhance their lifestyle. Today, we proudly serve thousands of satisfied customers worldwide.</p>
+                    <div class="story-stats">
+                        <div class="stat">
+                            <h3>10K+</h3>
+                            <p>Happy Customers</p>
+                        </div>
+                        <div class="stat">
+                            <h3>500+</h3>
+                            <p>Premium Products</p>
+                        </div>
+                        <div class="stat">
+                            <h3>50+</h3>
+                            <p>Countries Served</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop" alt="Our Story">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="our-values">
+        <div class="container">
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Quality First</h3>
+                    <p>We carefully curate only the highest quality products for our customers.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Customer Focus</h3>
+                    <p>Your satisfaction is our top priority. We're here to help every step of the way.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>We partner with eco-friendly suppliers to minimize our environmental impact.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-innovation"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We continuously improve our platform to provide the best shopping experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop" alt="Team Member">
+                    </div>
+                    <h3>Sarah Johnson</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop" alt="Team Member">
+                    </div>
+                    <h3>Michael Chen</h3>
+                    <p>Head of Operations</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=300&h=300&fit=crop" alt="Team Member">
+                    </div>
+                    <h3>Emily Davis</h3>
+                    <p>Customer Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-crown"></i>
+                        <span>EliteShop</span>
+                    </div>
+                    <p>Your premium destination for quality products and exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="products.html?category=electronics">Electronics</a></li>
+                        <li><a href="products.html?category=clothing">Clothing</a></li>
+                        <li><a href="products.html?category=home">Home & Garden</a></li>
+                        <li><a href="products.html?category=books">Books</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EliteShop. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

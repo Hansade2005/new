@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - EliteShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="index.html" class="brand-link">
+                        <i class="fas fa-crown"></i>
+                        <span>EliteShop</span>
+                    </a>
+                </div>
+
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="products.html?category=electronics">Electronics</a>
+                            <a href="products.html?category=clothing">Clothing</a>
+                            <a href="products.html?category=home">Home & Garden</a>
+                            <a href="products.html?category=books">Books</a>
+                        </div>
+                    </div>
+                    <a href="admin.html" class="nav-link active">Admin</a>
+                </div>
+
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="search-toggle" id="searchToggle">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <div class="search-container">
+                <input type="text" placeholder="Search products..." id="searchInput">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="products.html?category=electronics">Electronics</a>
+            <a href="products.html?category=clothing">Clothing</a>
+            <a href="products.html?category=home">Home & Garden</a>
+            <a href="products.html?category=books">Books</a>
+            <a href="admin.html">Admin</a>
+            <button class="theme-toggle" id="mobileThemeToggle" style="width: 100%; text-align: left; margin-top: var(--spacing-2);">
+                <i class="fas fa-moon"></i>
+                <span id="themeText">Dark Mode</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <section class="admin-dashboard">
+        <div class="container">
+            <div class="admin-header">
+                <h1>Admin Dashboard</h1>
+                <p>Manage your store products and settings</p>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalProducts">0</h3>
+                        <p>Total Products</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalOrders">0</h3>
+                        <p>Total Orders</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalCustomers">0</h3>
+                        <p>Total Customers</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalRevenue">$0</h3>
+                        <p>Total Revenue</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Tabs -->
+            <div class="admin-tabs">
+                <button class="admin-tab-btn active" data-tab="products">Products</button>
+                <button class="admin-tab-btn" data-tab="orders">Orders</button>
+                <button class="admin-tab-btn" data-tab="analytics">Analytics</button>
+                <button class="admin-tab-btn" data-tab="settings">Settings</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="admin-content">
+                <!-- Products Tab -->
+                <div class="admin-tab-content active" id="productsTab">
+                    <div class="tab-header">
+                        <h2>Product Management</h2>
+                        <button class="btn btn-primary" id="addProductBtn">
+                            <i class="fas fa-plus"></i>
+                            Add Product
+                        </button>
+                    </div>
+
+                    <div class="products-table-container">
+                        <table class="admin-table" id="productsTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Products will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Orders Tab -->
+                <div class="admin-tab-content" id="ordersTab">
+                    <div class="tab-header">
+                        <h2>Order Management</h2>
+                    </div>
+
+                    <div class="orders-table-container">
+                        <table class="admin-table" id="ordersTable">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Total</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- Orders will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Analytics Tab -->
+                <div class="admin-tab-content" id="analyticsTab">
+                    <h2>Analytics Dashboard</h2>
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3>Sales Overview</h3>
+                            <div class="analytics-chart">
+                                <canvas id="salesChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Top Products</h3>
+                            <div class="top-products-list" id="topProductsList">
+                                <!-- Top products will be loaded -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div class="admin-tab-content" id="settingsTab">
+                    <h2>Store Settings</h2>
+                    <div class="settings-form">
+                        <div class="form-section">
+                            <h3>General Settings</h3>
+                            <div class="form-group">
+                                <label for="storeName">Store Name</label>
+                                <input type="text" id="storeName" value="EliteShop">
+                            </div>
+                            <div class="form-group">
+                                <label for="storeEmail">Store Email</label>
+                                <input type="email" id="storeEmail" value="hello@eliteshop.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="storePhone">Store Phone</label>
+                                <input type="tel" id="storePhone" value="+1 (555) 123-4567">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Shipping Settings</h3>
+                            <div class="form-group">
+                                <label for="freeShippingThreshold">Free Shipping Threshold ($)</label>
+                                <input type="number" id="freeShippingThreshold" value="50">
+                            </div>
+                            <div class="form-group">
+                                <label for="standardShipping">Standard Shipping ($)</label>
+                                <input type="number" id="standardShipping" value="9.99">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" id="saveSettings">
+                                <i class="fas fa-save"></i>
+                                Save Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-crown"></i>
+                        <span>EliteShop</span>
+                    </div>
+                    <p>Your premium destination for quality products and exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="products.html?category=electronics">Electronics</a></li>
+                        <li><a href="products.html?category=clothing">Clothing</a></li>
+                        <li><a href="products.html?category=home">Home & Garden</a></li>
+                        <li><a href="products.html?category=books">Books</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EliteShop. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
