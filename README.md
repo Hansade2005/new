@@ -1,5 +1,7 @@
 # EliteShop - Professional Ecommerce Application
 
+**Created by Hans Ade**
+
 A modern, fully-featured ecommerce frontend application built with HTML, CSS, and vanilla JavaScript. This professional-grade application showcases advanced web development techniques and provides a complete shopping experience.
 
 ## ✨ Features
@@ -147,6 +149,8 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 For questions or feedback about this project, please open an issue on GitHub.
+
+**Created by Hans Ade**
 
 ---
 
