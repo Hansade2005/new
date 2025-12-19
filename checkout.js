@@ -551,45 +551,8 @@ class CheckoutPage {
         window.eliteShop.cart = [];
         window.eliteShop.saveCart();
 
-        const orderNumber = 'ELT-' + Date.now();
-        const container = document.getElementById('checkoutLayout');
-
-        container.innerHTML = `
-            <div class="order-confirmation">
-                <div class="confirmation-icon">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <h2>Order Confirmed!</h2>
-                <p>Thank you for your purchase. Your order has been successfully placed.</p>
-
-                <div class="order-details">
-                    <div class="order-detail-row">
-                        <span>Order Number:</span>
-                        <strong>${orderNumber}</strong>
-                    </div>
-                    <div class="order-detail-row">
-                        <span>Estimated Delivery:</span>
-                        <strong>3-5 business days</strong>
-                    </div>
-                </div>
-
-                <div class="confirmation-actions">
-                    <a href="index.html" class="btn btn-primary">
-                        <i class="fas fa-home"></i>
-                        Continue Shopping
-                    </a>
-                    <button class="btn btn-outline" onclick="window.print()">
-                        <i class="fas fa-print"></i>
-                        Print Receipt
-                    </button>
-                </div>
-
-                <div class="order-email-notice">
-                    <i class="fas fa-envelope"></i>
-                    <p>A confirmation email has been sent to your email address.</p>
-                </div>
-            </div>
-        `;
+        // Redirect to order confirmation page
+        window.location.href = 'order-confirmation.html';
     }
 }
 
