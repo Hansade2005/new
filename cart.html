@@ -27,7 +27,7 @@
             </div>
             <div class="cart-total">
                 <p>Total: $<span id="cart-total">0.00</span></p>
-                <a href="checkout.html" class="btn">Proceed to Checkout</a>
+                <button type="button" class="btn" onclick="(function(){ var total = parseFloat(document.getElementById('cart-total').textContent) || 0; if (total > 0) { window.location.href = 'checkout.html'; } })();">Proceed to Checkout</button>
             </div>
         </section>
     </main>
