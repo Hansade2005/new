@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - EliteShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="index.html" class="brand-link">
+                        <i class="fas fa-crown"></i>
+                        <span>EliteShop</span>
+                    </a>
+                </div>
+
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link active">Products</a>
+                    <div class="nav-dropdown">
+                        <button class="nav-link dropdown-toggle">Categories <i class="fas fa-chevron-down"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="products.html?category=electronics">Electronics</a>
+                            <a href="products.html?category=clothing">Clothing</a>
+                            <a href="products.html?category=home">Home & Garden</a>
+                            <a href="products.html?category=books">Books</a>
+                        </div>
+                    </div>
+                    <a href="account.html" class="nav-link">Account</a>
+                </div>
+
+                <div class="nav-actions">
+                    <button class="search-toggle" id="searchToggle">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search Bar -->
+        <div class="search-bar" id="searchBar">
+            <div class="search-container">
+                <input type="text" placeholder="Search products..." id="searchInput">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="products.html?category=electronics">Electronics</a>
+            <a href="products.html?category=clothing">Clothing</a>
+            <a href="products.html?category=home">Home & Garden</a>
+            <a href="products.html?category=books">Books</a>
+            <a href="account.html">Account</a>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span id="breadcrumbCurrent">Products</span></li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-layout">
+                <!-- Sidebar Filters -->
+                <aside class="products-sidebar">
+                    <div class="filter-section">
+                        <h3 class="filter-title">Categories</h3>
+                        <ul class="filter-list" id="categoryFilters">
+                            <li><a href="products.html" class="filter-link active" data-category="all">All Products</a></li>
+                            <li><a href="products.html?category=electronics" class="filter-link" data-category="electronics">Electronics</a></li>
+                            <li><a href="products.html?category=clothing" class="filter-link" data-category="clothing">Clothing</a></li>
+                            <li><a href="products.html?category=home" class="filter-link" data-category="home">Home & Garden</a></li>
+                            <li><a href="products.html?category=books" class="filter-link" data-category="books">Books</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Price Range</h3>
+                        <div class="price-range">
+                            <div class="price-inputs">
+                                <input type="number" id="minPrice" placeholder="Min" min="0">
+                                <span>-</span>
+                                <input type="number" id="maxPrice" placeholder="Max" min="0">
+                            </div>
+                            <button class="btn btn-outline btn-small" id="applyPriceFilter">Apply</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Rating</h3>
+                        <div class="rating-filters">
+                            <label class="rating-filter">
+                                <input type="checkbox" value="4">
+                                <span class="stars">★★★★☆</span> & Up
+                            </label>
+                            <label class="rating-filter">
+                                <input type="checkbox" value="3">
+                                <span class="stars">★★★☆☆</span> & Up
+                            </label>
+                            <label class="rating-filter">
+                                <input type="checkbox" value="2">
+                                <span class="stars">★★☆☆☆</span> & Up
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Availability</h3>
+                        <label class="availability-filter">
+                            <input type="checkbox" id="inStockOnly" checked>
+                            In Stock Only
+                        </label>
+                    </div>
+                </aside>
+
+                <!-- Main Products Area -->
+                <main class="products-main">
+                    <!-- Header with sorting and view options -->
+                    <div class="products-header">
+                        <div class="products-info">
+                            <h1 id="productsTitle">All Products</h1>
+                            <span class="products-count" id="productsCount">Showing 8 products</span>
+                        </div>
+
+                        <div class="products-controls">
+                            <div class="sort-dropdown">
+                                <select id="sortSelect">
+                                    <option value="name">Name A-Z</option>
+                                    <option value="name-desc">Name Z-A</option>
+                                    <option value="price">Price Low-High</option>
+                                    <option value="price-desc">Price High-Low</option>
+                                    <option value="rating">Highest Rated</option>
+                                    <option value="newest">Newest</option>
+                                </select>
+                            </div>
+
+                            <div class="view-options">
+                                <button class="view-btn active" data-view="grid" id="gridView">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button class="view-btn" data-view="list" id="listView">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid/List -->
+                    <div class="products-container" id="productsContainer">
+                        <!-- Products will be loaded dynamically -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination">
+                        <!-- Pagination will be generated dynamically -->
+                    </div>
+
+                    <!-- No Results -->
+                    <div class="no-results" id="noResults" style="display: none;">
+                        <i class="fas fa-search"></i>
+                        <h3>No products found</h3>
+                        <p>Try adjusting your filters or search terms</p>
+                        <a href="products.html" class="btn btn-primary">Clear Filters</a>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-crown"></i>
+                        <span>EliteShop</span>
+                    </div>
+                    <p>Your premium destination for quality products and exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="account.html">My Account</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="products.html?category=electronics">Electronics</a></li>
+                        <li><a href="products.html?category=clothing">Clothing</a></li>
+                        <li><a href="products.html?category=home">Home & Garden</a></li>
+                        <li><a href="products.html?category=books">Books</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EliteShop. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>
